@@ -1,15 +1,5 @@
-.app {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 1rem;
- 
+.container 
+{
+  max-width: 450px;
+  margin: 20px auto;
 }
-
-h1, h2, h3, p, button  {
-    margin: .5em;
-    padding: .5em;
-}
-

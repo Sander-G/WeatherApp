@@ -1,46 +1,52 @@
-import { useState } from "react";
-import './App.css'
+// import { useState } from "react";
+import styles from 'styled-components';
+import GlobalStyle, { globals } from "./styles";
+import Search from "./components/search/search"
+
 
 function App() {
 
-  const [names, setNames] = useState([])
-
-  function handleInput() {
-    let input = document.querySelector('input');
-
-
-    setNames(prevState => {
-      let state = [...prevState];
-      state.unshift({                     //unshift ipv push om nieuwe item als eerste in array op te nemen ipv laatste
-        value: input.value,
-        id: Math.random()
-      });
-      
-      return state;
-    });
+  const handleOnSearchChange = (searchData) => {
+    console.log(searchData);
   }
-// console.log(names)
+
+  return (
+    <>          
+    <GlobalStyle />                                       
+      <h3>Weather App </h3>       
+    <div className="container"></div>
+    <Search onSearchChange={handleOnSearchChange}/>
+
  
+       
 
-return (
-    <div className="app">                                                 {/* div met een beetje styling */}
-      <h3>Opdracht 3 - Lists & Keys</h3>                                      {/* titel */}
-        <input />
-        <button onClick={handleInput}>Submit Name</button>
-            {names.map((name, index) => {
-              return <ListItem text={name.value} key={name.id}/>
-  
-            })}
-            </div>
-  );
 
-          }
 
-          const ListItem = ({text}) => {
-            return (
-              <div>
-                <p>{text}</p>
-              </div>
-            )
-          }
+
+
+
+
+
+
+        
+        <div className="localWeather">
+
+
+      <p>Local Weather</p>
+        </div>
+        
+
+
+        <div className="foreCast">
+          <p>7-day forecast:</p>
+        </div>
+
+
+            </>
+
+
+
+
+  )
+}
 export default App;

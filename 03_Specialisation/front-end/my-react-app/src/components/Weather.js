@@ -1,37 +1,75 @@
 import React from "react";
 import "../styles/Weather.css"
 
-const Weather = () => {
+const Weather = (props) => {
+
+    let icon = `http://openweathermap.org/img/wn/${props.data.icon}@2x.png`
+
+    const weekDay = [
+        "Sunday",
+        "Monday", 
+        "Tuesday", 
+        "Wednesday", 
+        "Thursday", 
+        "Friday", 
+        "Saturday"
+    ];
+    const month = [
+        "January", 
+        "Februari", 
+        "March", 
+        "April", 
+        "May", 
+        "June", 
+        "July", 
+        "August", 
+        "September", 
+        "October", 
+        "November", 
+        "December"];
+
+
+
+    let thisDay = new Date();
+    let currentWeekday = weekDay[thisDay.getDay()];
+    let currentMonth = month[thisDay.getMonth()];
+    let currentDate = thisDay.getDate();
+    let currentDay = currentWeekday + `, ` + currentMonth + ` ` + currentDate;
+      // console.log(thisDay);
+    // console.log(currentDay);
+
+
     return (
         <div className="weather">
             <div className="top">
                 <div>
-                    <p className="city">Enschede</p>
-                    <p className="weather-description">Sunny</p>
+
+                    <p className="city">{props.location.city}, {props.location.country}</p>
+                    <p className="current-date">{currentDay}</p>
+                    <p className="weather-description">{props.data.description}</p>
+
                 </div>
-                <img alt="weather" className="weather-icon" src="icons/01d.png" />
+                <img alt="weather" className="weather-icon" src={icon} />
             </div>
             <div className="bottom">
-                <p className="temperature">24°C</p>
+                <p className="temperature">{Math.round(props.data.temp)}°C</p>
+
                 <div className="details">
-                    {/* <div className="parameter-row">
-                        <span className="parameter-label">Details:</span>
-                    </div> */}
                     <div className="parameter-row">
                         <span className="parameter-label">Feels like:</span>
-                        <span className="parameter-value">26°C</span>
+                        <span className="parameter-value">{Math.round(props.data.feelslike)}°C</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Wind:</span>
-                        <span className="parameter-value">3 m/s</span>
+                        <span className="parameter-value">{props.data.windspeed} m/s</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Humidity:</span>
-                        <span className="parameter-value">20%</span>
+                        <span className="parameter-value">{props.data.humidity}%</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Pressure:</span>
-                        <span className="parameter-value">20 hPa</span>
+                        <span className="parameter-value">{props.data.pressure}hPa</span>
                     </div>
                 </div>
             </div>

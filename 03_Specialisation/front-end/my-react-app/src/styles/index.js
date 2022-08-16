@@ -8,35 +8,13 @@ export const globals = {
 }
 
 
-
 export default createGlobalStyle`
-   *, *::before, *::after {
+
+*, *::after, *::before {
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 
-   }
+}
 
-   html {
-    font-size: 1.5rem;
-    @media (min-width: 768px) {
-        font-size: 1.8 rem;
-    }
-   }
-
-   body {
-    margin: 0;
-    font-family: "Roboto", Arial !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-   }
-
-   #root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: ${globals.primaryTextColor};
-    background-color: ${globals.backgroundColor};
-
-
-   }
 `;

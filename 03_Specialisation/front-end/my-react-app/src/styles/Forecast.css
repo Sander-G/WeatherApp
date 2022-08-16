@@ -19,6 +19,14 @@
     flex-direction: column;
 }
 
+.forecast__day--subheading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.8em;
+}
+
 .forecast__temp_wrapper {
     display: flex;
     align-items: center;

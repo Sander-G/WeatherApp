@@ -54,7 +54,7 @@ const Weather = (props) => {
                     <div className="parameter-row">
                         <span className="parameter-label">Wind:</span>
                         <span className="parameter-value">
-                        <img className="arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}} />
+                        <img className="arrow" alt="arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}} />
                         </span>
                         <span className="parameter-value">{props.data.windspeed} m/s</span>
                     </div>

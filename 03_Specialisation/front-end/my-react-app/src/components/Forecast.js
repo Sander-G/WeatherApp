@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Forecast.css";
 
 const weekDay = [
-  "Sunday",  
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
@@ -12,27 +12,21 @@ const weekDay = [
 ];
 
 const thisDay = new Date();
-let forecastDayOne = weekDay[thisDay.getDay() +1];
-let forecastDayTwo = weekDay[thisDay.getDay() +2];
-let forecastDayThree = weekDay[thisDay.getDay() +3];
-let forecastDayFour = weekDay[thisDay.getDay() +4];
-let forecastDayFive = weekDay[thisDay.getDay() +5];
-let forecastDaySix = weekDay[thisDay.getDay() -1];
+let forecastDayOne = weekDay[thisDay.getDay() + 1];
+let forecastDayTwo = weekDay[thisDay.getDay() + 2];
+let forecastDayThree = weekDay[thisDay.getDay() + 3];
+let forecastDayFour = weekDay[thisDay.getDay() + 4];
+let forecastDayFive = weekDay[thisDay.getDay() - 2];
+let forecastDaySix = weekDay[thisDay.getDay() - 1];
 let forecastDaySeven = weekDay[thisDay.getDay()];
 
-// console.log(forecastDaySeven);
+// console.log(forecastDayFive);
 
 
 
 
 const Forecast = (props) => {
-  let iconOne = `http://openweathermap.org/img/wn/${props.data.iconOne}@4x.png`
-  let iconTwo = `http://openweathermap.org/img/wn/${props.data.iconTwo}@4x.png`
-  let iconThree = `http://openweathermap.org/img/wn/${props.data.iconThree}@4x.png`
-  let iconFour = `http://openweathermap.org/img/wn/${props.data.iconFour}@4x.png`
-  let iconFive = `http://openweathermap.org/img/wn/${props.data.iconFive}@4x.png`
-  let iconSix = `http://openweathermap.org/img/wn/${props.data.iconSix}@4x.png`
-  let iconSeven = `http://openweathermap.org/img/wn/${props.data.iconSeven}@4x.png`
+
   return (
     <>
 
@@ -44,8 +38,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconOne}
-          />
+            src={`./icons/${props.data.iconOne}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempOne)}°C</div>
         </div>
         <div className="forecast__details">
@@ -55,6 +48,9 @@ const Forecast = (props) => {
           </div>
           <div className="parameter-row">
             <span className="forecast__parameter--label">Wind:</span>
+            <span className="parameter-value">
+                        <img className="forecast__arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirectionOne}deg)`}} />
+                        </span>
             <span className="forecast__parameter--value">{props.data.windspeedOne}m/s</span>
           </div>
           <div className="parameter-row">
@@ -66,7 +62,7 @@ const Forecast = (props) => {
             <span className="forecast__parameter--value">{props.data.pressureOne} hPa</span>
           </div>
         </div>
-      </div> 
+      </div>
       <div className="forecast">
         <div className="forecast__day--heading">
           <p>{forecastDayTwo}</p>
@@ -75,8 +71,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconTwo}
-          />
+            src={`./icons/${props.data.iconTwo}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempTwo)}°C</div>
         </div>
         <div className="forecast__details">
@@ -86,6 +81,9 @@ const Forecast = (props) => {
           </div>
           <div className="parameter-row">
             <span className="forecast__parameter--label">Wind:</span>
+            <span className="parameter-value">
+                        <img className="forecast__arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirectionTwo}deg)`}} />
+                        </span>
             <span className="forecast__parameter--value">{props.data.windspeedTwo}m/s</span>
           </div>
           <div className="parameter-row">
@@ -106,8 +104,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconThree}
-          />
+            src={`./icons/${props.data.iconThree}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempThree)}°C</div>
         </div>
         <div className="forecast__details">
@@ -137,8 +134,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconFour}
-          />
+            src={`./icons/${props.data.iconFour}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempFour)}°C</div>
         </div>
         <div className="forecast__details">
@@ -168,8 +164,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconFive}
-          />
+            src={`./icons/${props.data.iconFive}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempFive)}°C</div>
         </div>
         <div className="forecast__details">
@@ -199,8 +194,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconSix}
-          />
+            src={`./icons/${props.data.iconSix}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempSix)}°C</div>
         </div>
         <div className="forecast__details">
@@ -230,8 +224,7 @@ const Forecast = (props) => {
           <img
             alt="forecast"
             className="weather__icon--small"
-            src={iconSeven}
-          />
+            src={`./icons/${props.data.iconSeven}.svg`} />
           <div className="forecast__temp">{Math.round(props.data.tempSeven)}°C</div>
         </div>
         <div className="forecast__details">

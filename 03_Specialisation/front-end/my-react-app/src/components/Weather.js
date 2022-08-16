@@ -1,10 +1,8 @@
 import React from "react";
-import "../styles/Weather.css"
+import "../styles/Weather.css";
+
 
 const Weather = (props) => {
-
-    let icon = `http://openweathermap.org/img/wn/${props.data.icon}@2x.png`
-
     const weekDay = [
         "Sunday",
         "Monday", 
@@ -28,8 +26,6 @@ const Weather = (props) => {
         "November", 
         "December"];
 
-
-
     let thisDay = new Date();
     let currentWeekday = weekDay[thisDay.getDay()];
     let currentMonth = month[thisDay.getMonth()];
@@ -38,29 +34,28 @@ const Weather = (props) => {
       // console.log(thisDay);
     // console.log(currentDay);
 
-
     return (
         <div className="weather">
             <div className="top">
                 <div>
-
                     <p className="city">{props.location.city}, {props.location.country}</p>
                     <p className="current-date">{currentDay}</p>
                     <p className="weather-description">{props.data.description}</p>
-
                 </div>
-                <img alt="weather" className="weather-icon" src={icon} />
+                <img alt="weather" className="weather-icon" src={`./icons/${props.data.icon}.svg`} />
             </div>
             <div className="bottom">
                 <p className="temperature">{Math.round(props.data.temp)}°C</p>
-
-                <div className="details">
+                    <div className="details">   
                     <div className="parameter-row">
                         <span className="parameter-label">Feels like:</span>
                         <span className="parameter-value">{Math.round(props.data.feelslike)}°C</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Wind:</span>
+                        <span className="parameter-value">
+                        <img className="arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}} />
+                        </span>
                         <span className="parameter-value">{props.data.windspeed} m/s</span>
                     </div>
                     <div className="parameter-row">
@@ -74,9 +69,6 @@ const Weather = (props) => {
                 </div>
             </div>
         </div>
-
     );
-
 }
-
 export default Weather;

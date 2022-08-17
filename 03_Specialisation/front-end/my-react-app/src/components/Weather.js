@@ -16,47 +16,47 @@ const Weather = (props) => {
     // console.log(thisDay);
     // console.log(currentDay);
     return (
-        <Weather__component>
+        <WeatherComponent>
             <Top>
                 <div>
                     <City>{props.location.city}, {props.location.country}</City>
-                    <Current__date>{currentDay}</Current__date>
-                    <Weather__description>{props.data.description}</Weather__description>
+                    <CurrentDate>{currentDay}</CurrentDate>
+                    <WeatherDescription>{props.data.description}</WeatherDescription>
                 </div>
                 <img alt="weather" width="100px" src={`./icons/${props.data.icon}.svg`} />
             </Top>
             <Bottom>
                 <Temperature>{Math.round(props.data.temp)}°C</Temperature>
                     <Details>   
-                        <Parameter__row>
-                        <Parameter__label>Feels like:</Parameter__label>
-                        <Parameter__value>{Math.round(props.data.feelslike)}°C</Parameter__value>
-                        </Parameter__row>
-                        <Parameter__row>
-                        <Parameter__label>Wind:</Parameter__label>
-                        <Parameter__value>
+                        <ParameterRow>
+                        <ParameterLabel>Feels like:</ParameterLabel>
+                        <ParameterValue>{Math.round(props.data.feelslike)}°C</ParameterValue>
+                        </ParameterRow>
+                        <ParameterRow>
+                        <ParameterLabel>Wind:</ParameterLabel>
+                        <ParameterValue>
                         <img className="arrow" alt="arrow" src="./images/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}}/>
                        
-                        {(props.data.windspeed*1.1268406556253).toFixed(1)} Bft</Parameter__value>
-                        </Parameter__row>
-                        <Parameter__row>
-                        <Parameter__label>Humidity:</Parameter__label>
-                        <Parameter__value>{props.data.humidity}%</Parameter__value>
-                        </Parameter__row>
-                        <Parameter__row>
-                        <Parameter__label>Pressure:</Parameter__label>
-                        <Parameter__value>{props.data.pressure} hPa</Parameter__value>
-                        </Parameter__row>
+                        {(props.data.windspeed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
+                        </ParameterRow>
+                        <ParameterRow>
+                        <ParameterLabel>Humidity:</ParameterLabel>
+                        <ParameterValue>{props.data.humidity}%</ParameterValue>
+                        </ParameterRow>
+                        <ParameterRow>
+                        <ParameterLabel>Pressure:</ParameterLabel>
+                        <ParameterValue>{props.data.pressure} hPa</ParameterValue>
+                        </ParameterRow>
                     </Details>
             </Bottom>
-        </Weather__component>
+        </WeatherComponent>
     );
 }
 export default Weather;
 
 //****** sTyLiNg Weather component ******//
 
-const Weather__component = styled.div`
+const WeatherComponent = styled.div`
     width: 375px;
     border-radius: 5px;
     box-shadow: 10px -2px 20px 2px rgba(0, 0, 0, 30%);
@@ -86,13 +86,13 @@ const City = styled.p`
     margin: 0;
     letter-spacing: 1px;
 `;
-const Weather__description = styled.p`
+const WeatherDescription = styled.p`
     font-weight: 400;
     font-size: 13px;
     line-height: 1;
     margin: .2em;
 `;
-const Current__date = styled.p`
+const CurrentDate = styled.p`
 font-weight: 400;
     font-size: 13px;
     line-height: 1;
@@ -109,22 +109,21 @@ const Details = styled.div`
   width: 100%;
     padding-left: 20px;
 `;
-const Parameter__row = styled.div`
+const ParameterRow = styled.div`
 display: flex;
     justify-content: space-between;
 `;
-const Parameter__label = styled.div`
+const ParameterLabel = styled.div`
   text-align: left;
     font-weight: 400;
     font-size: 12px;
     padding-left: 15px;
 `;
-const Parameter__value = styled.span`
+const ParameterValue = styled.span`
   text-align: right;
     font-weight: 550;
 `;
 const Arrow = styled.img`
-
   height: 1em;
     margin-right: .5em;
     position: relative;

@@ -138,16 +138,16 @@ function App() {
     <>
     <GlobalStyle/>
       <Container>
-        <Search__wrapper>
+        <SearchWrapper>
           <Inputfield>
             <input type="text" id="input" placeholder="Enter city name.." />
             <button id="button" onClick={searchLocation}>Sykje!</button>
           </Inputfield>
           <Weather city={city} data={data} location={location} />
-        </Search__wrapper>
-        <Forecast__wrapper>
+        </SearchWrapper>
+        <ForecastWrapper>
           <Forecast data={data} />
-        </Forecast__wrapper>
+        </ForecastWrapper>
       </Container>
     </>
   );
@@ -165,7 +165,7 @@ background-size: cover;
 background-size: 100vw;
 padding: 0px 0px 50px 0px;
 `;
-const Search__wrapper=styled.div`
+const SearchWrapper=styled.div`
     display: flex;
    flex-flow: column wrap;
    align-content: flex-start;
@@ -187,7 +187,7 @@ const Inputfield = styled.div`
   justify-content: space-evenly;
 `;
 
-const Forecast__wrapper = styled.div`
+const ForecastWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

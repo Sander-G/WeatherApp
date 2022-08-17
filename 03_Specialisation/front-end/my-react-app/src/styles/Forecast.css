@@ -27,6 +27,10 @@
     font-size: 0.8em;
 }
 
+.weather-description {
+    font-size: 0.8em;
+}
+
 .forecast__temp_wrapper {
     display: flex;
     align-items: center;

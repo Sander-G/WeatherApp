@@ -16,5 +16,20 @@ export default createGlobalStyle`
     padding: 0px;
 
 }
+.root {
+    font-family: "Roboto", Arial !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;   
+}
 
+#button:hover {
+    cursor: pointer;
+  }
+
+  .arrow {
+    height: 1em;
+    margin-right: .5em;
+    position: relative;
+    top: .2em; 
+}
 `;

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
-import "./styles/App.css";
 import styled from 'styled-components';
 import GlobalStyle, { globals } from "./styles";
 import img from "./images/weerman.jpg";
@@ -41,7 +40,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=hourly,minutely,alerts&appid=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((weatherData) => {
@@ -139,23 +138,25 @@ function App() {
     <>
     <GlobalStyle/>
       <Container>
-        <div className="search__wrapper">
-          <div className="inputfield">
+        <Search__wrapper>
+          <Inputfield>
             <input type="text" id="input" placeholder="Enter city name.." />
-            <button id="button" onClick={searchLocation}>
-            Sykje!
-            </button>
-          </div>
+            <button id="button" onClick={searchLocation}>Sykje!</button>
+          </Inputfield>
           <Weather city={city} data={data} location={location} />
-        </div>
-        <div className="forecast__wrapper">
+        </Search__wrapper>
+        <Forecast__wrapper>
           <Forecast data={data} />
-        </div>
+        </Forecast__wrapper>
       </Container>
     </>
   );
 }
 export default App;
+
+
+//****** sTyLiNg Containers & Input ******//
+
 
 const Container=styled.div`
 background-image: url(${img});
@@ -163,4 +164,34 @@ background-repeat: no-repeat;
 background-size: cover;
 background-size: 100vw;
 padding: 0px 0px 50px 0px;
-`
+`;
+const Search__wrapper=styled.div`
+    display: flex;
+   flex-flow: column wrap;
+   align-content: flex-start;
+    margin-left: 190px;
+    padding-left:20px;
+    margin-bottom: 20px;
+`;
+
+const Inputfield = styled.div`
+  width: 375px;
+  border-radius: 5px;
+  box-shadow: 10px -2px 20px 2px rgba(0, 0, 0, 30%);
+  color: #fff;
+  background-color: #091921;
+  margin: 20px auto 0 auto;
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+const Forecast__wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding-left:20px;
+`;

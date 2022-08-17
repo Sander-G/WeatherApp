@@ -26,6 +26,7 @@ const month = [
   "12",
 ];
 
+
 const thisDay = new Date();
 let forecastDayOne = weekDay[thisDay.getDay() + 1];
 let forecastDayTwo = weekDay[thisDay.getDay() + 2];
@@ -117,12 +118,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeOne)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{transform: `rotate(${props.data.winddirectionOne}deg)`,
                 }}
               />
@@ -131,13 +132,13 @@ const Forecast = (props) => {
             {(props.data.windspeedOne * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humidityOne}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureOne} hPa
@@ -171,12 +172,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeTwo)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{
                   transform: `rotate(${props.data.winddirectionTwo}deg)`,
                 }}
@@ -186,13 +187,13 @@ const Forecast = (props) => {
             {(props.data.windspeedTwo * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humidityTwo}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureTwo} hPa
@@ -226,12 +227,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeThree)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{
                   transform: `rotate(${props.data.winddirectionThree}deg)`,
                 }}
@@ -243,13 +244,13 @@ const Forecast = (props) => {
             </span>
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humidityThree}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureThree} hPa
@@ -284,12 +285,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeFour)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{
                   transform: `rotate(${props.data.winddirectionFour}deg)`,
                 }}
@@ -299,13 +300,13 @@ const Forecast = (props) => {
             {(props.data.windspeedFour * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humidityFour}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureFour} hPa
@@ -339,12 +340,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeFive)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{
                   transform: `rotate(${props.data.winddirectionFive}deg)`,
                 }}
@@ -354,13 +355,13 @@ const Forecast = (props) => {
             {(props.data.windspeedFive * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humidityFive}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureFive} hPa
@@ -394,12 +395,12 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeSix)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
                 className="forecast__arrow"
-                src="./images/arrow.svg"
+                src="./images/arrow.svg" alt="arrow"
                 style={{
                   transform: `rotate(${props.data.winddirectionSix}deg)`,
                 }}
@@ -409,13 +410,13 @@ const Forecast = (props) => {
             {(props.data.windspeedSix * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humiditySix}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureSix} hPa
@@ -449,11 +450,11 @@ const Forecast = (props) => {
               {Math.round(props.data.feelslikeSeven)}°C
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Wind:</span>
             <span className="parameter-value">
               <img
-                className="forecast__arrow"
+                className="forecast__arrow" alt="arrow"
                 src="./images/arrow.svg"
                 style={{
                   transform: `rotate(${props.data.winddirectionSeven}deg)`,
@@ -464,13 +465,13 @@ const Forecast = (props) => {
             {(props.data.windspeedSeven * 1.1268406556253).toFixed(1)} Bft
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Humidity:</span>
             <span className="forecast__parameter--value">
               {props.data.humiditySeven}%
             </span>
           </div>
-          <div className="parameter-row">
+          <div className="forecast__parameter--row">
             <span className="forecast__parameter--label">Pressure:</span>
             <span className="forecast__parameter--value">
               {props.data.pressureSeven} hPa

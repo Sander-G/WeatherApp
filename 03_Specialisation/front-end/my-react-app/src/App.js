@@ -4,6 +4,7 @@ import Forecast from "./components/Forecast";
 import "./styles/App.css";
 import styled from 'styled-components';
 import GlobalStyle, { globals } from "./styles";
+import img from "./images/weerman.jpg";
 
 function App() {
   const [city, setCity] = useState("Enschede");
@@ -44,6 +45,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((weatherData) => {
+        console.log(weatherData);
         return setData({
           temp: weatherData.current.temp,
           icon: weatherData.current.weather[0].icon,
@@ -120,7 +122,7 @@ function App() {
           descriptionSeven: weatherData.daily[6].weather[0].description,
         });
       });
-  }, [location]);
+}, [location]);
 
   useEffect(() => {
     document
@@ -141,7 +143,7 @@ function App() {
           <div className="inputfield">
             <input type="text" id="input" placeholder="Enter city name.." />
             <button id="button" onClick={searchLocation}>
-              Search
+            Sykje!
             </button>
           </div>
           <Weather city={city} data={data} location={location} />
@@ -155,11 +157,10 @@ function App() {
 }
 export default App;
 
-
 const Container=styled.div`
-background-image: url("../images/weerman.jpg");
+background-image: url(${img});
 background-repeat: no-repeat;
 background-size: cover;
 background-size: 100vw;
-padding: 0px 0px 40px 0px;
+padding: 0px 0px 50px 0px;
 `

@@ -1,39 +1,19 @@
 import React from "react";
 import "../styles/Weather.css";
 
-
 const Weather = (props) => {
-    const weekDay = [
-        "Sunday",
-        "Monday", 
-        "Tuesday", 
-        "Wednesday", 
-        "Thursday", 
-        "Friday", 
-        "Saturday"
-    ];
-    const month = [
-        "January", 
-        "Februari", 
-        "March", 
-        "April", 
-        "May", 
-        "June", 
-        "July", 
-        "August", 
-        "September", 
-        "October", 
-        "November", 
-        "December"];
+    const weekDay = [  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+    const month = [ "January", "Februari", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"];
 
     let thisDay = new Date();
     let currentWeekday = weekDay[thisDay.getDay()];
     let currentMonth = month[thisDay.getMonth()];
     let currentDate = thisDay.getDate();
-    let currentDay = currentWeekday + `, ` + currentMonth + ` ` + currentDate;
+    let currentYear = [thisDay.getFullYear()];
+    let currentDay = currentWeekday + `, ` + currentMonth + ` ` + currentDate + ` ` + currentYear;
+    // console.log(currentYear)
       // console.log(thisDay);
     // console.log(currentDay);
-
     return (
         <div className="weather">
             <div className="top">
@@ -54,9 +34,9 @@ const Weather = (props) => {
                     <div className="parameter-row">
                         <span className="parameter-label">Wind:</span>
                         <span className="parameter-value">
-                        <img className="arrow" alt="arrow" src="./icons/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}} />
-                        </span>
-                        <span className="parameter-value">{props.data.windspeed} m/s</span>
+                        <img className="arrow" alt="arrow" src="./images/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}}/>
+                       
+                        {(props.data.windspeed*1.1268406556253).toFixed(1)} Bft</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Humidity:</span>
@@ -64,7 +44,7 @@ const Weather = (props) => {
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Pressure:</span>
-                        <span className="parameter-value">{props.data.pressure}hPa</span>
+                        <span className="parameter-value">{props.data.pressure} hPa</span>
                     </div>
                 </div>
             </div>

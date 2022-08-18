@@ -2,49 +2,41 @@ import React from "react";
 import styled from 'styled-components';
 import ArrowImg from "../images/arrow.svg";
 
-const Weather = ({ city, data, location }) => {
-    const weekDay = [  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
-    const month = [ "January", "Februari", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"];
+const Weather = ({ data, location }) => {
+const dt = (data.current?.dt);
+const Today = new Date(dt*1000).toLocaleString("en-us", 
+{weekday: "long", year:"numeric", month:"long", day:"numeric"});
 
-    let thisDay = new Date();
-    let currentWeekday = weekDay[thisDay.getDay()];
-    let currentMonth = month[thisDay.getMonth()];
-    let currentDate = thisDay.getDate();
-    let currentYear = [thisDay.getFullYear()];
-    let currentDay = currentWeekday + `, ` + currentMonth + ` ` + currentDate + ` ` + currentYear;
-    // console.log(currentYear)
-    // console.log(thisDay);
-    // console.log(currentDay);
     return (
         <WeatherComponent>
             <Top>
                 <div>
                     <City>{location.city}, {location.country}</City>
-                    <CurrentDate>{currentDay}</CurrentDate>
-                    <WeatherDescription>{data.description}</WeatherDescription>
+                    <CurrentDate>{Today}</CurrentDate>
+                    <WeatherDescription>{data.current?.weather[0].description}</WeatherDescription>
                 </div>
-                <img alt="weathericon" width="100px" src={`./icons/${data.icon}.svg`} />
+                <img alt="weathericon" width="100px" src={`./icons/${data.current?.weather[0].icon}.svg`} />
             </Top>
             <Bottom>
-                <Temperature>{Math.round(data.temp)}°C</Temperature>
+                <Temperature>{Math.round(data.current?.temp)}°C</Temperature>
                     <Details>   
                         <ParameterRow>
                         <ParameterLabel>Feels like:</ParameterLabel>
-                        <ParameterValue>{Math.round(data.feelslike)}°C</ParameterValue>
+                        <ParameterValue>{Math.round(data.current?.feels_like)}°C</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Wind:</ParameterLabel>
                         <ParameterValue>
-                        <Arrow src={ArrowImg} alt="Arrow" style={{transform: `rotate(${data.winddirection}deg)`}}/>
-                        {(data.windspeed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
+                        <Arrow src={ArrowImg} alt="Arrow" style={{transform: `rotate(${data.current?.wind_deg}deg)`}}/>
+                        {(data.current?.wind_speed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Humidity:</ParameterLabel>
-                        <ParameterValue>{data.humidity}%</ParameterValue>
+                        <ParameterValue>{data.current?.humidity}%</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Pressure:</ParameterLabel>
-                        <ParameterValue>{data.pressure} hPa</ParameterValue>
+                        <ParameterValue>{data.current?.pressure} hPa</ParameterValue>
                         </ParameterRow>
                     </Details>
             </Bottom>
@@ -54,7 +46,6 @@ const Weather = ({ city, data, location }) => {
 export default Weather;
 
 //****** Styled components - Weather ******//
-
 const WeatherComponent = styled.div`
     width: 375px;
     border-radius: 5px;
@@ -128,4 +119,4 @@ const Arrow = styled.img`
     margin-right: .5em;
     position: relative;
     top: .1em; 
-`;
+`;;;;;;

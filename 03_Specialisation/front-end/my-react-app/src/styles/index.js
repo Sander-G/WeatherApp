@@ -23,14 +23,13 @@ export default createGlobalStyle`
 }
 
 #button {
- 
-
-
+    padding: 5px;
+    border-radius: 15px;
+    min-width: 60px;
 }
-
-
-
-
+#button:active {
+    scale: 1.1;
+}
   .arrow {
     height: 1em;
     margin-right: .5em;

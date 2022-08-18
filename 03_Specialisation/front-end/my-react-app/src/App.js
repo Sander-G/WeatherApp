@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
 import styled from 'styled-components';
-import GlobalStyle, { globals } from "./styles";
-import img from "./images/weerman.jpg";
+import GlobalStyle from "./styles";
+import PietImg from "./images/weerman.jpg";
 
 function App() {
   const [city, setCity] = useState("Enschede");
@@ -46,6 +46,9 @@ function App() {
       .then((weatherData) => {
         console.log(weatherData);
         return setData({
+          data:weatherData,
+
+
           temp: weatherData.current.temp,
           icon: weatherData.current.weather[0].icon,
           feelslike: weatherData.current.feels_like,
@@ -155,11 +158,10 @@ function App() {
 export default App;
 
 
-//****** sTyLiNg Containers & Input ******//
-
+//****** Styled Components - Containers & Wrappers & Input ******//
 
 const Container=styled.div`
-background-image: url(${img});
+background-image: url(${PietImg});
 background-repeat: no-repeat;
 background-size: cover;
 background-size: 100vw;
@@ -173,7 +175,14 @@ const SearchWrapper=styled.div`
     padding-left:20px;
     margin-bottom: 20px;
 `;
-
+const ForecastWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding-left:20px;
+`;
 const Inputfield = styled.div`
   width: 375px;
   border-radius: 5px;
@@ -185,13 +194,4 @@ const Inputfield = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-`;
-
-const ForecastWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  padding-left:20px;
 `;

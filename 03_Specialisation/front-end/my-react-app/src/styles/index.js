@@ -22,9 +22,14 @@ export default createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;   
 }
 
-#button:hover {
-    cursor: pointer;
-  }
+#button {
+ 
+
+
+}
+
+
+
 
   .arrow {
     height: 1em;
@@ -33,3 +38,9 @@ export default createGlobalStyle`
     top: .2em; 
 }
 `;
+
+
+
+
+
+

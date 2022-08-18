@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
+import ArrowImg from "../images/arrow.svg";
 
-
-const Weather = (props) => {
+const Weather = ({ city, data, location }) => {
     const weekDay = [  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
     const month = [ "January", "Februari", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"];
 
@@ -19,33 +19,32 @@ const Weather = (props) => {
         <WeatherComponent>
             <Top>
                 <div>
-                    <City>{props.location.city}, {props.location.country}</City>
+                    <City>{location.city}, {location.country}</City>
                     <CurrentDate>{currentDay}</CurrentDate>
-                    <WeatherDescription>{props.data.description}</WeatherDescription>
+                    <WeatherDescription>{data.description}</WeatherDescription>
                 </div>
-                <img alt="weather" width="100px" src={`./icons/${props.data.icon}.svg`} />
+                <img alt="weathericon" width="100px" src={`./icons/${data.icon}.svg`} />
             </Top>
             <Bottom>
-                <Temperature>{Math.round(props.data.temp)}°C</Temperature>
+                <Temperature>{Math.round(data.temp)}°C</Temperature>
                     <Details>   
                         <ParameterRow>
                         <ParameterLabel>Feels like:</ParameterLabel>
-                        <ParameterValue>{Math.round(props.data.feelslike)}°C</ParameterValue>
+                        <ParameterValue>{Math.round(data.feelslike)}°C</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Wind:</ParameterLabel>
                         <ParameterValue>
-                        <img className="arrow" alt="arrow" src="./images/arrow.svg" style={{transform: `rotate(${props.data.winddirection}deg)`}}/>
-                       
-                        {(props.data.windspeed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
+                        <Arrow src={ArrowImg} alt="Arrow" style={{transform: `rotate(${data.winddirection}deg)`}}/>
+                        {(data.windspeed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Humidity:</ParameterLabel>
-                        <ParameterValue>{props.data.humidity}%</ParameterValue>
+                        <ParameterValue>{data.humidity}%</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
                         <ParameterLabel>Pressure:</ParameterLabel>
-                        <ParameterValue>{props.data.pressure} hPa</ParameterValue>
+                        <ParameterValue>{data.pressure} hPa</ParameterValue>
                         </ParameterRow>
                     </Details>
             </Bottom>
@@ -54,7 +53,7 @@ const Weather = (props) => {
 }
 export default Weather;
 
-//****** sTyLiNg Weather component ******//
+//****** Styled components - Weather ******//
 
 const WeatherComponent = styled.div`
     width: 375px;
@@ -124,8 +123,9 @@ const ParameterValue = styled.span`
     font-weight: 550;
 `;
 const Arrow = styled.img`
+
   height: 1em;
     margin-right: .5em;
     position: relative;
-    top: .2em; 
+    top: .1em; 
 `;

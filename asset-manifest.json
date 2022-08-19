@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/static/js/main.9e202786.js",
+    "static/media/weerman.jpg": "/static/media/weerman.97f0b9ce9e1b71da064f.jpg",
+    "static/media/oant_moarn.mp3": "/static/media/oant_moarn.b1acbdfe61d7684eee5f.mp3",
+    "index.html": "/index.html",
+    "main.9e202786.js.map": "/static/js/main.9e202786.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9e202786.js"
+  ]
+}

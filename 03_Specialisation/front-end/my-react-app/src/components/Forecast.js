@@ -1,40 +1,34 @@
 import React from "react";
 import styled from 'styled-components';
 
-
-
-
-const Forecast = ({data}) => {
+const Forecast = ({ data }) => {
   // console.log(data)
-
-  const dt = (data.daily[0].dt);
-  const ForecastDay = new Date(dt*1000).toLocaleString("en-us", { weekday: "long"});
-  console.log(ForecastDay);
-
   return (
-
     <>
       {data.daily.map((day, index) => {
-        if (index === 0) return
+        if (index === 0) return <></>
+
+        const ForecastDay = new Date((day.dt) * 1000).toLocaleString("en-us", { weekday: "long" });
+        const ForecastDate = new Date((day.dt) * 1000).toLocaleString("en-us", { day: "2-digit" });
+        const ForecastMonth = new Date((day.dt) * 1000).toLocaleString("en-us", { month: "2-digit" });
+
         return <ForecastComponent key={index}>
-        <ForecastDayHeading><p>{(day.dt*1000).toLocaleString("en-us", {weekday: "long"})}</p></ForecastDayHeading>
-        {/* <ForecastDaySubheading><p>{forecastDayMonthOne}</p></ForecastDaySubheading> */}
-        <ForecastTempWrapper>
-          <WeatherIconSmall alt="ForecastIconSmall"
-          src={`./icons/${day.weather[0].icon}.svg`}/>
-          <ForecastDescription>{day.weather[0].description}</ForecastDescription>
-          <ForecastTemp>{Math.round(day.temp.day)}°C</ForecastTemp>
-        </ForecastTempWrapper>
-        <ForecastParameterRow>
+          <ForecastDayHeading><p>{ForecastDay}</p></ForecastDayHeading>
+          <ForecastDaySubheading><p>{ForecastDate}{` / `}{ForecastMonth}</p></ForecastDaySubheading>
+          <ForecastTempWrapper>
+            <WeatherIconSmall alt="ForecastIconSmall" src={`./icons/${day.weather[0].icon}.svg`} />
+            <ForecastDescription>{day.weather[0].description}</ForecastDescription>
+            <ForecastTemp>{Math.round(day.temp.day)}°C</ForecastTemp>
+          </ForecastTempWrapper>
+          <ForecastParameterRow>
             <ForecastParameterLabel>Feels like:</ForecastParameterLabel>
             <ForecastParameterValue>{Math.round(day.feels_like.day)}°C</ForecastParameterValue>
           </ForecastParameterRow>
           <ForecastParameterRow>
             <ForecastParameterLabel>Wind:</ForecastParameterLabel>
-            <ForecastArrow alt="arrow"
-            style={{ transform: `rotate(${day.wind_deg}deg)` }}/>
+            <ForecastArrow alt="arrow" style={{ transform: `rotate(${day.wind_deg}deg)` }} />
             <ForecastParameterValue>
-            {(day.wind_speed * 1.1268406556253).toFixed(1)} Bft
+              {(day.wind_speed * 1.1268406556253).toFixed(1)} Bft
             </ForecastParameterValue>
           </ForecastParameterRow>
           <ForecastParameterRow>
@@ -44,9 +38,9 @@ const Forecast = ({data}) => {
           <ForecastParameterRow>
             <ForecastParameterLabel>Pressure:</ForecastParameterLabel>
             <ForecastParameterValue>{day.pressure} hPa</ForecastParameterValue>
-          </ForecastParameterRow>  
-      </ForecastComponent>
-        })}
+          </ForecastParameterRow>
+        </ForecastComponent>
+      })}
     </>
   );
 };
@@ -111,21 +105,7 @@ const ForecastParameterValue = styled.span`
     font-size: 12px;
 `;
 const ForecastArrow = styled.img.attrs({
-  src: "./images/arrow.svg"})`
+  src: "./images/arrow.svg"
+})`
     height: 0.8rem;
-`;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+`;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

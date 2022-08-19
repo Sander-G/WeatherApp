@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
 import styled from 'styled-components';
-import GlobalStyle from "./styles";
+import Globals from "./styles";
 import PietImg from "./images/weerman.jpg";
+import oantMoarn from "./audio/oant_moarn.mp3";
 
 function App() {
+  const audio = new Audio(oantMoarn);
+  const start = () => {
+    audio.play();
+  };
   const [city, setCity] = useState("Enschede");
   const [location, setLocation] = useState({
     lat: "52.2209855",
@@ -14,8 +19,6 @@ function App() {
     country: "NL",
   });
   const [data, setData] = useState(null);
-
-
   const searchLocation = () => {
     const input = document.getElementById("input").value;
     setCity(input);
@@ -63,12 +66,15 @@ function App() {
 
   return (
     <>
-    <GlobalStyle/>
+    <Globals/>
       <Container>
         <SearchWrapper>
           <Inputfield>
             <input type="text" id="input" placeholder="Enter city name.." />
-            <button id="button" onClick={searchLocation}>Sykje!</button>
+            <button id="button" onClick= {() =>{
+            searchLocation(); 
+            start();
+            }}>Sykje!</button>
           </Inputfield>
           {data && <Weather city={city} data={data} location={location} />}
         </SearchWrapper>
@@ -118,4 +124,4 @@ const Inputfield = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-`;
+`;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

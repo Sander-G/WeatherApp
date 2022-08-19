@@ -1,10 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
-import ArrowImg from "../images/arrow.svg";
 
 const Weather = ({ data, location }) => {
-const dt = (data.current?.dt);
-const Today = new Date(dt*1000).toLocaleString("en-us", 
+
+const Today = new Date((data.current?.dt)*1000).toLocaleString("en-us", 
 {weekday: "long", year:"numeric", month:"long", day:"numeric"});
 
     return (
@@ -27,7 +26,7 @@ const Today = new Date(dt*1000).toLocaleString("en-us",
                         <ParameterRow>
                         <ParameterLabel>Wind:</ParameterLabel>
                         <ParameterValue>
-                        <Arrow src={ArrowImg} alt="Arrow" style={{transform: `rotate(${data.current?.wind_deg}deg)`}}/>
+                        <Arrow alt="Arrow" style={{transform: `rotate(${data.current?.wind_deg}deg)`}}/>
                         {(data.current?.wind_speed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
                         </ParameterRow>
                         <ParameterRow>
@@ -113,10 +112,11 @@ const ParameterValue = styled.span`
   text-align: right;
     font-weight: 550;
 `;
-const Arrow = styled.img`
-
-  height: 1em;
+const Arrow = styled.img.attrs({
+   src: "../images/arrow.svg"
+    })`
+    height: 1em;
     margin-right: .5em;
     position: relative;
     top: .1em; 
-`;;;;;;
+`;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

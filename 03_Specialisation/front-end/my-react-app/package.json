@@ -1,7 +1,7 @@
 {
   "name": "my-react-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://sander-g.github.io/WeatherApp/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -15,7 +15,6 @@
     "react-select-async-paginate": "^0.6.2",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
-    
   },
   "scripts": {
     "predeploy": "npm run build",

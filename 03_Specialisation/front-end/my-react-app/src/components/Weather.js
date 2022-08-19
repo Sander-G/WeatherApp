@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Weather = ({ data, location }) => {
 
-const Today = new Date((data.current?.dt)*1000).toLocaleString("en-us", 
-{weekday: "long", year:"numeric", month:"long", day:"numeric"});
+    const Today = new Date((data.current?.dt) * 1000).toLocaleString("en-us",
+        { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
     return (
         <WeatherComponent>
@@ -18,26 +18,26 @@ const Today = new Date((data.current?.dt)*1000).toLocaleString("en-us",
             </Top>
             <Bottom>
                 <Temperature>{Math.round(data.current?.temp)}°C</Temperature>
-                    <Details>   
-                        <ParameterRow>
+                <Details>
+                    <ParameterRow>
                         <ParameterLabel>Feels like:</ParameterLabel>
                         <ParameterValue>{Math.round(data.current?.feels_like)}°C</ParameterValue>
-                        </ParameterRow>
-                        <ParameterRow>
+                    </ParameterRow>
+                    <ParameterRow>
                         <ParameterLabel>Wind:</ParameterLabel>
                         <ParameterValue>
-                        <Arrow alt="Arrow" style={{transform: `rotate(${data.current?.wind_deg}deg)`}}/>
-                        {(data.current?.wind_speed*1.1268406556253).toFixed(1)} Bft</ParameterValue>
-                        </ParameterRow>
-                        <ParameterRow>
+                            <Arrow alt="Arrow" style={{ transform: `rotate(${data.current?.wind_deg}deg)` }} />
+                            {(data.current?.wind_speed * 1.1268406556253).toFixed(1)} Bft</ParameterValue>
+                    </ParameterRow>
+                    <ParameterRow>
                         <ParameterLabel>Humidity:</ParameterLabel>
                         <ParameterValue>{data.current?.humidity}%</ParameterValue>
-                        </ParameterRow>
-                        <ParameterRow>
+                    </ParameterRow>
+                    <ParameterRow>
                         <ParameterLabel>Pressure:</ParameterLabel>
                         <ParameterValue>{data.current?.pressure} hPa</ParameterValue>
-                        </ParameterRow>
-                    </Details>
+                    </ParameterRow>
+                </Details>
             </Bottom>
         </WeatherComponent>
     );
@@ -113,8 +113,8 @@ const ParameterValue = styled.span`
     font-weight: 550;
 `;
 const Arrow = styled.img.attrs({
-   src: "../images/arrow.svg"
-    })`
+    src: "./images/arrow.svg"
+})`
     height: 1em;
     margin-right: .5em;
     position: relative;

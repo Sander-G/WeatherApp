@@ -108,4 +108,4 @@ const ForecastArrow = styled.img.attrs({
   src: "./images/arrow.svg"
 })`
     height: 0.8rem;
-`;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+`;
